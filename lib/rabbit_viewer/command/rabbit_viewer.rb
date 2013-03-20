@@ -22,7 +22,7 @@ module RabbitViewer
             title = "= rabbit-viewer"
             tempfile.puts(title)
         
-            Dir.glob(arguments[0]) do |viewfile|
+            arguments.each do |viewfile|
               page = <<-EOT
 = #{File.basename(viewfile)}
   # image
