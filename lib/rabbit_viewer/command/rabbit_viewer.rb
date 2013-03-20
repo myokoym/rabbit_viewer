@@ -17,21 +17,21 @@ module RabbitViewer
 
       def run(arguments)
         Tempfile.open(["rabbit_viewer", ".rab"]) do |tempfile|
-            title = <<-EOT
+          title = <<-EOT
 = RabbitViewer
 : date
    version #{::RabbitViewer::VERSION}
-            EOT
-            tempfile.puts(title)
+          EOT
+          tempfile.puts(title)
         
-            arguments.each do |viewfile|
-              page = <<-EOT
+          arguments.each do |viewfile|
+            page = <<-EOT
 = #{File.basename(viewfile)}
   # image
   # src = #{viewfile}
-              EOT
-              tempfile.puts(page)
-            end
+            EOT
+            tempfile.puts(page)
+          end
         
           tempfile.flush
           Rabbit::Command::Rabbit.run(tempfile.path)
