@@ -20,7 +20,12 @@ module RabbitViewer
           tempfile.puts(title)
         
           arguments.each do |viewfile|
-            tempfile.puts(page(viewfile))
+            case viewfile
+            when /\.(svg|png|jpe?g|gif|eps|pdf)$/
+              tempfile.puts(image_page(viewfile))
+            else
+              tempfile.puts(text_page(viewfile))
+            end
           end
         
           tempfile.flush
@@ -37,12 +42,22 @@ module RabbitViewer
         EOT
       end
 
-      def page(viewfile)
+      def image_page(viewfile)
         <<-EOT
 = #{File.basename(viewfile)}
   # image
   # src = #{viewfile}
         EOT
+      end
+
+      def text_page(viewfile)
+        page = "= #{File.basename(viewfile)}\n"
+        File.open(viewfile) do |f|
+          f.each_line.to_a[0..9].each_with_index do |line, i|
+            page += "    #{i + 1}: #{line}\n"
+          end
+        end
+        page
       end
     end
   end
