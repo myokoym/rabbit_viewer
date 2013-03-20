@@ -1,3 +1,4 @@
+require "rabbit_viewer/version"
 require "rabbit/command/rabbit"
 require "fileutils"
 
@@ -19,7 +20,11 @@ module RabbitViewer
         
         begin
           File.open(tempfile, "a") do |tempfile|
-            title = "= RabbitViewer"
+            title = <<-EOT
+= RabbitViewer
+: date
+   version #{::RabbitViewer::VERSION}
+            EOT
             tempfile.puts(title)
         
             arguments.each do |viewfile|
