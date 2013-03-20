@@ -1,6 +1,7 @@
 require "rabbit_viewer/version"
 require "rabbit/command/rabbit"
 require "tempfile"
+require "uri"
 
 module RabbitViewer
   module Command
@@ -21,6 +22,15 @@ module RabbitViewer
         
           arguments.each do |viewfile|
             next unless File.file?(viewfile)
+
+            begin
+              URI.parse(viewfile)
+            rescue URI::InvalidURIError
+              STDERR.puts($!.message)
+              STDERR.puts("Sorry, don't support multibyte file name as yet.")
+              next
+            end
+
             case viewfile
             when /\.(svg|png|jpe?g|gif|eps|pdf)$/
               tempfile.puts(image_page(viewfile))
