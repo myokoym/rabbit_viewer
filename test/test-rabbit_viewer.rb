@@ -13,4 +13,19 @@ class TestRabbitViewer < Test::Unit::TestCase
    version #{::RabbitViewer::VERSION}
     EOT
   end
+
+  def test_image_page
+    assert_equal(<<-EOP, @rabbit_viewer.__send__(:image_page, __FILE__))
+= #{File.basename(__FILE__)}
+  # image
+  # src = #{File.expand_path(__FILE__)}
+    EOP
+  end
+
+  def test_undefind_page
+    assert_equal(<<-EOP, @rabbit_viewer.__send__(:undefind_page, __FILE__))
+= #{File.basename(__FILE__)}
+Sorry, this file is don't support format...
+    EOP
+  end
 end
