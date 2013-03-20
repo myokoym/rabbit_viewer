@@ -20,7 +20,8 @@ module RabbitViewer
         Tempfile.open(["rabbit_viewer", ".rab"]) do |tempfile|
           tempfile.puts(title)
         
-          arguments.each do |viewfile|
+          arguments.each do |viewfile_relative|
+            viewfile = File.expand_path(viewfile_relative)
             next unless File.file?(viewfile)
 
             begin
