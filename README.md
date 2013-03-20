@@ -22,7 +22,34 @@ Or install it yourself as:
 
 ## Usage
 
+### run
+
     $ rabbit_viewer /home/user/Pictures/*.png
+
+    $ rabbit_viewer ~/Pictures/*.png
+
+    $ cd ~/Pictures
+    $ rabbit_viewer *.png
+
+### move
+
+* cursor key
+* etc.
+
+### list mode
+
+* i key
+
+### exit
+
+* Esc key
+* etc.
+
+### details
+
+[Rabbit::sample.en](http://www.cozmixng.org/~rwiki/?cmd=view;name=Rabbit%3A%3Asample.en#Op.2e.3a.20Move)
+
+[Rabbit::sample.ja](http://www.cozmixng.org/~rwiki/?cmd=view;name=Rabbit%3A%3Asample.ja#a.e6.93.8d.e4.bd.9c.3a.20.e7.a7.bb.e5.8b.95)
 
 ## Contributing
 
