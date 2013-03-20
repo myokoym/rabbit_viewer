@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = RabbitViewer::VERSION
   spec.authors       = ["Masafumi Yokoyama"]
   spec.email         = ["myokoym@gmail.com"]
-  spec.summary       = %q{File viewer. Multi format, CLI launch, wildcard, etc...}
+  spec.summary       = %q{File viewer. Multi format, CLI launch, wildcard, etc. Powered by Rabbit.}
   spec.description   = spec.summary # FIXME
   spec.homepage      = "https://github.com/myokoym/rabbit_viewer"
   spec.license       = "GPLv2+"
