@@ -32,7 +32,7 @@ module RabbitViewer
             end
 
             case viewfile
-            when /\.(svg|png|jpe?g|gif|eps|pdf)$/
+            when /\.(svg|png|jpe?g|gif|eps)$/
               tempfile.puts(image_page(viewfile))
             else
               tempfile.puts(text_page(viewfile))
