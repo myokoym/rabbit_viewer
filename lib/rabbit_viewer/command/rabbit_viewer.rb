@@ -1,6 +1,6 @@
 require "rabbit_viewer/version"
 require "rabbit/command/rabbit"
-require "fileutils"
+require "tempfile"
 
 module RabbitViewer
   module Command
@@ -16,10 +16,7 @@ module RabbitViewer
       end
 
       def run(arguments)
-        tempfile= "/tmp/rabbit-viewer.#{$$}.tmp.rab"
-        
-        begin
-          File.open(tempfile, "a") do |tempfile|
+        Tempfile.open(["rabbit_viewer", ".rab"]) do |tempfile|
             title = <<-EOT
 = RabbitViewer
 : date
@@ -35,11 +32,9 @@ module RabbitViewer
               EOT
               tempfile.puts(page)
             end
-          end
         
-          Rabbit::Command::Rabbit.run(tempfile)
-        ensure
-          FileUtils.rm(tempfile)
+          tempfile.flush
+          Rabbit::Command::Rabbit.run(tempfile.path)
         end
       end
     end
