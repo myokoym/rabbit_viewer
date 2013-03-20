@@ -37,6 +37,11 @@ module RabbitViewer
             else
               page = text_page(viewfile)
             end
+
+            unless page
+              page = undefind_page(viewfile)
+            end
+
             tempfile.puts(page)
           end
         
@@ -66,9 +71,16 @@ module RabbitViewer
         page = "= #{File.basename(viewfile)}\n"
         File.open(viewfile) do |f|
           f.each_line.to_a[0..9].each_with_index do |line, i|
+            return nil unless line.valid_encoding?
             page += "    #{i + 1}: #{line}\n"
           end
         end
+        page
+      end
+
+      def undefind_page(viewfile)
+        page = "= #{File.basename(viewfile)}\n"
+        page += "Sorry, this file is don't support format...\n"
         page
       end
     end
