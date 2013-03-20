@@ -33,7 +33,7 @@ module RabbitViewer
             end
 
             case viewfile
-            when /\.(svg|png|jpe?g|gif|eps)$/
+            when /\.(svg|png|jpe?g|gif|eps|dia|xcf)$/
               page = image_page(viewfile)
             else
               page = text_page(viewfile)
