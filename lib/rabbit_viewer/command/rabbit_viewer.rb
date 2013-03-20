@@ -20,6 +20,7 @@ module RabbitViewer
           tempfile.puts(title)
         
           arguments.each do |viewfile|
+            next unless File.file?(viewfile)
             case viewfile
             when /\.(svg|png|jpe?g|gif|eps|pdf)$/
               tempfile.puts(image_page(viewfile))
