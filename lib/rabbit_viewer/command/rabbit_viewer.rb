@@ -33,10 +33,11 @@ module RabbitViewer
 
             case viewfile
             when /\.(svg|png|jpe?g|gif|eps)$/
-              tempfile.puts(image_page(viewfile))
+              page = image_page(viewfile)
             else
-              tempfile.puts(text_page(viewfile))
+              page = text_page(viewfile)
             end
+            tempfile.puts(page)
           end
         
           tempfile.flush
