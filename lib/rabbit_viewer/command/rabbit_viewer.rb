@@ -19,7 +19,7 @@ module RabbitViewer
         
         begin
           File.open(tempfile, "a") do |tempfile|
-            title = "= rabbit-viewer"
+            title = "= RabbitViewer"
             tempfile.puts(title)
         
             arguments.each do |viewfile|
