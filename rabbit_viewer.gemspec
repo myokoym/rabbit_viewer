@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["myokoym@gmail.com"]
   spec.summary       = %q{RabbitViewer is file viewer. Support a multi format.}
   spec.description   = spec.summary # FIXME
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/myokoym/rabbit_viewer"
   spec.license       = "GPLv2+"
 
   spec.files         = `git ls-files`.split($/)
