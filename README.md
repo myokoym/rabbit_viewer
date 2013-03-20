@@ -25,7 +25,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ rabbit_viewer /home/user/Pictures/*.png
 
 ## Contributing
 
