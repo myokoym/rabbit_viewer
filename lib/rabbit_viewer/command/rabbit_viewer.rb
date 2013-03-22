@@ -30,7 +30,7 @@ module RabbitViewer
                 URI.parse(viewfile)
               rescue URI::InvalidURIError
                 STDERR.puts($!.message)
-                STDERR.puts("Sorry, don't support multibyte file name as yet.")
+                STDERR.puts("Support multibyte file path by Rabbit 2.0.7. Encourage update!")
                 next
               end
             end
