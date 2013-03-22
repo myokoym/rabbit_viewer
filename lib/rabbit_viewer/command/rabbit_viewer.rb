@@ -26,13 +26,13 @@ module RabbitViewer
             next unless File.file?(viewfile)
 
             if Rabbit::VERSION <= "2.0.6"
-            begin
-              URI.parse(viewfile)
-            rescue URI::InvalidURIError
-              STDERR.puts($!.message)
-              STDERR.puts("Sorry, don't support multibyte file name as yet.")
-              next
-            end
+              begin
+                URI.parse(viewfile)
+              rescue URI::InvalidURIError
+                STDERR.puts($!.message)
+                STDERR.puts("Sorry, don't support multibyte file name as yet.")
+                next
+              end
             end
 
             case viewfile
