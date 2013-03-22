@@ -1,5 +1,6 @@
 require "rabbit_viewer/version"
 require "rabbit/command/rabbit"
+require "rabbit/version"
 require "tempfile"
 require "uri"
 
@@ -24,12 +25,14 @@ module RabbitViewer
             viewfile = File.expand_path(viewfile_relative)
             next unless File.file?(viewfile)
 
+            if Rabbit::VERSION <= "2.0.6"
             begin
               URI.parse(viewfile)
             rescue URI::InvalidURIError
               STDERR.puts($!.message)
               STDERR.puts("Sorry, don't support multibyte file name as yet.")
               next
+            end
             end
 
             case viewfile
