@@ -1,10 +1,6 @@
 # RabbitViewer
 
-It's file viewer. Support a multi format.
-
-png, gif, jpeg, txt ...
-
-Powered by [Rabbit](http://rabbit-shocker.org/)
+A file viewer by [Rabbit](http://rabbit-shocker.org/).
 
 ## Installation
 
